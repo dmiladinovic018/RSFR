@@ -1,0 +1,67 @@
+body {
+  &.easterGameRuning {
+    background-image: url("../../public/bossLife.jpg");
+    height: 100vh;
+    width: 100%;
+    background-size: cover;
+    background-position: center center;
+    cursor: crosshair;
+    overflow: hidden;
+    z-index: 1;
+
+    .damaged:not(body) {
+      opacity: .5 !important;
+    }
+
+    .destroyed:not(body) {
+      opacity: 0 !important;
+      z-index: -1;
+    }
+
+    .mob {
+      position: absolute;
+      z-index: 2;
+      width: 100px;
+      height: 130px;
+      background-position: center center;
+      background-repeat: no-repeat;
+    }
+
+    #gameBar {
+      cursor: pointer;
+      position: fixed;
+      top: 0;
+
+      .aleks,
+      .toni,
+      .misko,
+      .hanning,
+      .bayoMoy {
+        height: 50px;
+        width: 50px;
+        display: inline-block;
+        background-size: cover;
+      }
+    }
+
+    .aleks {
+      background-image: url("../../public/aleks.png");
+    }
+
+    .toni {
+      background-image: url("../../public/toni.png");
+    }
+
+    .misko {
+      background-image: url("../../public/misko.png");
+    }
+
+    .hanning {
+      background-image: url("../../public/hanning.jpg");
+    }
+
+    .bayoMoy {
+      background-image: url("../../public/baya.png");
+    }
+  }
+}

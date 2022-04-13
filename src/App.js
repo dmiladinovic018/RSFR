@@ -1,38 +1,23 @@
 import EasterEggs from "./components/EasterEggs";
-import logo from './logo.svg';
 import './sass/App.scss';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Content from './components/Content';
 
-const App = () => {
-
-    const url =
-        'http://bcwp.hltv.test/wp-json/wp/v2/pages/1422';
-
-    fetch(url)
-        .then(response => response.json())
-        .then(data => {
-            document.querySelector('body').innerHTML = data.content.rendered;
-        });
-
+function App({routeMap}) {
     EasterEggs();
 
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    return (
+        <Router>
+            <Routes>
+                <Route path="/" element={<Content homepage="true"/>}/>
+                {routeMap.map(({route, id, type}) => {
+                    return (
+                        <Route key={id} path={route} element={<Content id={id} type={type}/>}/>
+                    );
+                })}
+            </Routes>
+        </Router>
+    );
 }
 
 export default App;

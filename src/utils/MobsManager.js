@@ -6,7 +6,7 @@ class MobsManager {
             'toni',
             'misko',
             'hanning',
-            'baya'
+            'bayoMoj'
         ];
 
         mob.setAttribute("class", 'mob ' + mobsClasses[this.getRandomPosition(0, 5)]);

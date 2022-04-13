@@ -3,43 +3,39 @@ import { useEffect, useState } from "react";
 function Content({ id, type, homepage }) {
     // [TO DO] Get from context
     const domain = 'http://bcwp.hltv.test';
-    const API = `${domain}/wp-json/wp/v2`;
+    const restAPI = `${domain}/wp-json/wp/v2`;
+    const pluginAPI = `${domain}/wp-json/rsfr`;
 
-    const [content, setContent] = useState('fetching...');
-    const [latestPosts, setLatestPosts] = useState([]);
+    const [content, setContent] = useState(<></>);
 
     useEffect(() => {
-        if(!homepage) {
-            fetch(`${API}/${type}s/${id}`)
+        if(homepage) {
+            fetch(`${restAPI}/posts`) // 10 by default
             .then(response => response.json())
             .then(data => {
-                console.log(data);
-                setContent(data.content.rendered);
+                setContent(
+                    <ul>
+                        {data.map((post, index) => {
+                            return (
+                                <li key={index}><a href={post.link.replace(domain, '')}>{post.title.rendered}</a></li>
+                            );
+                        })}
+                    </ul>
+                );
             });
         }
         else {
-            fetch(`${API}/posts`) // 10 by default
+            fetch(`${restAPI}/${type}s/${id}`)
             .then(response => response.json())
             .then(data => {
-                console.log(data);
-                setLatestPosts(data);
+                setContent(<div dangerouslySetInnerHTML={{ __html: data.content.rendered }}></div>)
             });
         }
     }, []);
 
     return (
         <div className="Content">
-            {!homepage && <div dangerouslySetInnerHTML={{ __html: content }}></div>}
-            {
-                homepage &&
-                <ul>
-                    {latestPosts.map((post, index) => {
-                        return (
-                            <li key={index}><a href={post.link.replace(domain, '')}>{post.title.rendered}</a></li>
-                        );
-                    })}
-                </ul>
-            }
+            {content}
         </div>
     );
 }

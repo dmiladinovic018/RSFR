@@ -10,7 +10,7 @@ function App({ routeMap }) {
         <Route path="/" element={<Content homepage="true" />} />
         {routeMap.map(({route, id, type}) => {
           return (
-            <Route key={id} path={route} element={<Content id={id} type={type} />} />
+            <Route key={id} path={route} element={<Content id={id} type={type} homepage="false" />} />
           );
         })}
       </Routes>

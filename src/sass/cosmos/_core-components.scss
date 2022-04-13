@@ -1,0 +1,41 @@
+//------------- BC Core Components -------------//
+
+//BS Breakpoint mixins
+@mixin sm-view-max {
+    @media (max-width: #{$screen-sm}) {
+        @content;
+    }
+ }
+
+@mixin sm-view {
+    @media (min-width: #{$screen-sm}) {
+        @content;
+    }
+ }
+ @mixin md-view {
+    @media (min-width: #{$screen-md}) {
+        @content;
+    }
+ }
+ @mixin lg-view {
+    @media (min-width: #{$screen-lg}) {
+        @content;
+    }
+ }
+ @mixin xl-view {
+    @media (min-width: #{$screen-xl}) {
+        @content;
+    }
+ }
+
+// //IMPORT Cosmos Iconset
+// @import "cosmos-icons.scss";
+
+//BC Core Offer Blocks
+@import "core-blocks-offers.scss";
+
+//BC Core Operator List Blocks
+@import "core-blocks-operator-lists.scss";
+
+//BC Core Theme
+@import "core-theme.scss";

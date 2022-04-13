@@ -1,0 +1,18 @@
+//BC Core Components
+
+.table-stacked {
+    @include sm-view-max {
+        .table {
+            width:$full;
+            thead {
+                display: none;
+            }
+            tbody {
+                tr {
+                    display: flex;
+                    flex-direction: column;
+                }
+            }
+        }
+    }
+}

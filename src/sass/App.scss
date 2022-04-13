@@ -1,0 +1,19 @@
+// custom variable
+@import "bs-variable-overrides";
+
+// Bootstrap 5
+@import "bootstrap";
+
+// Core Theme scss file
+@import "core/stackable";
+@import "core/preloader";
+@import "core/search-modal";
+
+// Components
+@import "components/alignfull-blocks";
+@import "components/bc-block-common-classes";
+@import "components/navigation-menu";
+@import "components/hero";
+@import "components/understrap-dependencies";
+@import "components/scroll-hint";
+@import "components/easter-eggs";

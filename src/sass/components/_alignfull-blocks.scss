@@ -1,0 +1,23 @@
+// Support for gutenberg blocks
+
+.wp-block-group.alignfull,
+.wp-block-image.alignfull,
+.wp-block-table.alignfull,
+.wp-block-gallery.alignfull,
+.wp-block-columns.alignfull,
+.wp-block-cover.alignfull,
+.wp-block-embed.alignfull,
+.wp-block-embed.alignfull iframe {
+	width: 100vw;
+	position: relative;
+	left: 50%;
+	right: 50%;
+	margin-left: -50vw;
+	margin-right: -50vw;
+	max-width: 100vw;
+}
+
+.wp-block-group.alignfull .wp-block-group__inner-container,
+.wp-block-table.alignfull table {
+	@include make-container();
+}

@@ -25,26 +25,6 @@ body {
       height: 130px;
       background-position: center center;
       background-repeat: no-repeat;
-
-      &.aleks {
-        background-image: url("../../public/aleks.png");
-      }
-
-      &.toni {
-        background-image: url("../../public/toni.png");
-      }
-
-      &.misko {
-        background-image: url("../../public/misko.png");
-      }
-
-      &.hanning {
-        background-image: url("../../public/hanning.jpg");
-      }
-
-      &.bayoMoy {
-        background-image: url("../../public/baya.png");
-      }
     }
 
     #gameBar {
@@ -62,26 +42,26 @@ body {
         display: inline-block;
         background-size: cover;
       }
+    }
 
-      .aleks {
-        background-image: url("../../public/aleks.png");
-      }
+    .aleks {
+      background-image: url("../../public/aleks.png");
+    }
 
-      .toni {
-        background-image: url("../../public/toni.png");
-      }
+    .toni {
+      background-image: url("../../public/toni.png");
+    }
 
-      .misko {
-        background-image: url("../../public/misko.png");
-      }
+    .misko {
+      background-image: url("../../public/misko.png");
+    }
 
-      .hanning {
-        background-image: url("../../public/hanning.jpg");
-      }
+    .hanning {
+      background-image: url("../../public/hanning.jpg");
+    }
 
-      .bayoMoy {
-        background-image: url("../../public/baya.png");
-      }
+    .bayoMoy {
+      background-image: url("../../public/baya.png");
     }
   }
 }

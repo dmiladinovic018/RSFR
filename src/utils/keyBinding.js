@@ -5,9 +5,9 @@ const keyBinding = (isGameRuning, runGame) => {
         keysPressed[event.key] = true;
 
         if (keysPressed['Control'] && event.key === ' ') {
-            // if (window.confirm("Antistress break game. Press escape to exit. Happy destroying.")) {
+            if (window.confirm("Antistress break game. Press escape to exit. Happy destroying.")) {
                 runGame(true);
-            // }
+            }
         }
     });
 

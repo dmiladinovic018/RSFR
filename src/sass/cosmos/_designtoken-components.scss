@@ -1,0 +1,61 @@
+// Design Token Components
+
+//Button reset
+button, a {
+    background:none;
+    appearance: none;
+    padding:0;
+    border:none;
+    &:focus {
+        outline: none;
+    }
+    &:active {
+        position: relative;
+        bottom:-1px;
+    }
+}
+
+// Typography
+.text-subtitle {
+    font-weight: $font-weight-medium;
+    font-size: $h4-font-size;
+}
+
+.text-label {
+    font-size: $h5-font-size;
+    text-transform: uppercase;
+}
+
+.text-link {
+    color:$primary;
+    text-decoration: underline;
+}
+
+// Fills
+.fill-current {
+    fill: currentColor;
+}
+.fill-none {
+    fill:none;
+}
+.stroke-current {
+    stroke: currentColor;
+}
+.stroke-none {
+    stroke:none;
+}
+
+// Buttons
+.btn-large {
+    padding:$spacing-4 $spacing-8;
+}
+
+// Depth
+.z-10 {
+    z-index: 10;
+}
+
+// Flex
+.flex-1 {
+    flex:1;
+}

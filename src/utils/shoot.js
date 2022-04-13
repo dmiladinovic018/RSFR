@@ -1,5 +1,7 @@
+const publicDir = window.location.origin + '/';
+
 const playSound = (src) => {
-    var audio = new Audio(src);
+    const audio = new Audio(publicDir + src);
     audio.play();
 }
 
@@ -19,15 +21,15 @@ const shoot = (event, isGameRuning) => {
     const damagedClassName = 'damaged';
     const destroyedClassName = 'destroyed';
 
-    if (!target.classList.contains('invincible')){
+    if (!target.classList.contains('invincible')) {
         if (!target.classList.contains(damagedClassName)) {
             target.classList.add(damagedClassName);
-            if (target.classList.contains('mob')){
+            if (target.classList.contains('mob')) {
                 hitSound();
             }
         } else {
             target.classList.add(destroyedClassName);
-            if (target.classList.contains('mob')){
+            if (target.classList.contains('mob')) {
                 hitSound();
                 playSound('Headshot.mp3');
             }

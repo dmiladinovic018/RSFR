@@ -1,0 +1,125 @@
+body {
+  &.easterGameRuning {
+    background-image: url("../../public/bossLife.jpg");
+    height: 100vh;
+    width: 100%;
+    background-size: cover;
+    background-position: center center;
+    cursor: crosshair;
+    overflow: hidden;
+    z-index: 1;
+
+    .damaged:not(body) {
+      opacity: .5 !important;
+    }
+
+    .destroyed:not(body) {
+      opacity: 0 !important;
+      z-index: -1;
+    }
+
+    .mob {
+      position: absolute;
+      z-index: 2;
+      width: 100px;
+      height: 130px;
+      background-position: center center;
+      background-repeat: no-repeat;
+
+      &.aleks {
+        background-image: url("../../public/aleks.png");
+      }
+
+      &.toni {
+        background-image: url("../../public/toni.png");
+      }
+
+      &.misko {
+        background-image: url("../../public/misko.png");
+      }
+
+      &.hanning {
+        background-image: url("../../public/hanning.jpg");
+      }
+
+      &.bayoMoy {
+        background-image: url("../../public/baya.png");
+      }
+    }
+
+    #gameBar {
+      cursor: pointer;
+      position: fixed;
+      top: 0;
+
+      .aleks,
+      .toni,
+      .misko,
+      .hanning,
+      .bayoMoy {
+        height: 50px;
+        width: 50px;
+        display: inline-block;
+        background-size: cover;
+      }
+
+      .aleks {
+        background-image: url("../../public/aleks.png");
+      }
+
+      .toni {
+        background-image: url("../../public/toni.png");
+      }
+
+      .misko {
+        background-image: url("../../public/misko.png");
+      }
+
+      .hanning {
+        background-image: url("../../public/hanning.jpg");
+      }
+
+      .bayoMoy {
+        background-image: url("../../public/baya.png");
+      }
+    }
+  }
+
+  .App {
+    text-align: center;
+
+    &-logo {
+      height: 40vmin;
+      pointer-events: none;
+
+      @media (prefers-reduced-motion: no-preference) {
+        animation: App-logo-spin infinite 20s linear;
+      }
+
+      @keyframes &-spin {
+        from {
+          transform: rotate(0deg);
+        }
+
+        to {
+          transform: rotate(360deg);
+        }
+      }
+    }
+
+    &-header {
+      background-color: #282c34;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      font-size: calc(10px + 2vmin);
+      color: white;
+    }
+
+    &-link {
+      color: #61dafb;
+    }
+  }
+}

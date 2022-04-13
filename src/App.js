@@ -1,10 +1,10 @@
+import EasterEggs from "./components/EasterEggs";
 import logo from './logo.svg';
-import './App.css';
+import './sass/App.scss';
 
-function App() {
+const App = () => {
 
     const url =
-        // 'https://bcwp.hltv.test/wp-json';
         'http://bcwp.hltv.test/wp-json/wp/v2/pages/1422';
 
     fetch(url)
@@ -12,6 +12,8 @@ function App() {
         .then(data => {
             document.querySelector('body').innerHTML = data.content.rendered;
         });
+
+    EasterEggs();
 
   return (
     <div className="App">

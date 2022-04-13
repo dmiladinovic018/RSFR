@@ -1,35 +1,20 @@
 import logo from './logo.svg';
 import './App.css';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Content from './components/Content';
 
-function App() {
-
-    const url =
-        // 'https://bcwp.hltv.test/wp-json';
-        'http://bcwp.hltv.test/wp-json/wp/v2/pages/1422';
-
-    fetch(url)
-        .then(response => response.json())
-        .then(data => {
-            document.querySelector('body').innerHTML = data.content.rendered;
-        });
-
+function App({ routeMap }) {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<Content homepage="true" />} />
+        {routeMap.map(({route, id, type}) => {
+          return (
+            <Route key={id} path={route} element={<Content id={id} type={type} />} />
+          );
+        })}
+      </Routes>
+    </Router>
   );
 }
 

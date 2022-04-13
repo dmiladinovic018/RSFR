@@ -1,17 +1,4 @@
-const publicDir = window.location.origin + '/';
-
-const playSound = (src) => {
-    const audio = new Audio(publicDir + src);
-    audio.play();
-}
-
-const hitSound = () => {
-    const damageSounds = [
-        'Helmet.mp3',
-        'Ouch.mp3'
-    ];
-    playSound(damageSounds[Math.floor(Math.random() * (1 + 1))]);
-}
+import {hitSound, playSound} from "./playSound";
 
 const shoot = (event, isGameRuning) => {
     if (!isGameRuning) {

@@ -3,7 +3,6 @@ import keyBinding from "../utils/keyBinding";
 import gameBar from "../utils/gameBar";
 import shoot from "../utils/shoot";
 import MobsManager from "../utils/MobsManager";
-import {playSound, stopSound} from "../utils/playSound";
 
 const EasterEggs = () => {
     const [isGameRuning, runGame] = useState(false);
@@ -20,7 +19,6 @@ const EasterEggs = () => {
 
     const runEasterGame = () => {
         body.classList.add(gameClassName);
-        playSound('Invader - Dance with the dead.mp4');
         gameBar(isGameRuning);
 
         let invoker = setInterval(
@@ -42,7 +40,6 @@ const EasterEggs = () => {
         const mobs = document.querySelectorAll('.mob');
 
         body.classList.remove(gameClassName)
-        stopSound();
         clearInterval(invokeMobs);
 
         if (gameBar) {

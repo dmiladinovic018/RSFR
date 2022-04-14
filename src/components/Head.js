@@ -26,6 +26,7 @@ function Head() {
                 content="Web site created using create-react-app"
             />
             <title>React App</title>
+            <link rel="stylesheet" href={window.location.origin+"/App.css"}/>
             {Object.values(cssFiles).filter(url => url).map((url, index) => <link key={index} rel="stylesheet" href={url} />)}
         </head>
     );

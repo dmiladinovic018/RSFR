@@ -13,8 +13,15 @@ export const hitSound = () => {
     playSound(damageSounds[Math.floor(Math.random() * (1 + 1))]);
 }
 
-export const stopSound = () => {
-    // audio.stop();
+export const playMusic = (src) => {
+    const player = document.createElement('audio');
+    const source = document.createElement('source');
+    player.setAttribute('controls', '');
+    source.setAttribute('src', publicDir + src);
+    source.setAttribute('type', 'audio/mpeg');
+    player.append(source);
+
+    return player;
 }
 
 export default playSound;

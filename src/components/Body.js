@@ -64,7 +64,16 @@ function Body({id, type, homepage}) {
                     {sidebar}
                 </div>
             </main>
-            {Object.values(jsFiles).map((url, index) => <script key={index} src={url} />)}
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossOrigin="anonymous"></script>
+            {
+                Object.entries(jsFiles)
+                .filter(([handle, url]) => {
+                    return handle === 'bcb-script' || handle === 'bcsb-script' || handle === 'bc-b-localization';
+                })
+                .map(([handle, url], index) => {
+                    return (<script key={index} src={url} />);
+                })
+            }
         </body>
     );
 }

@@ -27,7 +27,15 @@ const Head = () => {
             />
             <title>React App</title>
             <link rel="stylesheet" href={window.location.origin+"/App.css"}/>
-            {Object.values(cssFiles).filter(url => url).map((url, index) => <link key={index} rel="stylesheet" href={url} />)}
+            {
+                Object.entries(cssFiles)
+                .filter(([handle, url]) => {
+                    return handle === 'bcb-style' || handle === 'bcsb-style' || handle === 'bcb-localization';
+                })
+                .map(([handle, url], index) => {
+                    return (<link key={index} rel="stylesheet" href={url} />);
+                })
+            }
         </head>
     );
 }

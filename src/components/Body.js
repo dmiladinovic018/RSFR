@@ -8,6 +8,7 @@ function Body({ id, type, homepage }) {
 
     const [content, setContent] = useState(<></>);
     const [menu, setMenu] = useState(<></>);
+    const [title, setTitle] = useState(<></>);
     const [jsFiles, setJsFiles] = useState({});
 
     useEffect(() => {
@@ -30,6 +31,7 @@ function Body({ id, type, homepage }) {
             fetch(`${restAPI}/${type}s/${id}`)
             .then(response => response.json())
             .then(data => {
+                setTitle(<h1 dangerouslySetInnerHTML={{ __html: data.title.rendered }}></h1>)
                 setContent(<div dangerouslySetInnerHTML={{ __html: data.content.rendered }}></div>)
             });
         }
@@ -52,6 +54,7 @@ function Body({ id, type, homepage }) {
             <noscript>You need to enable JavaScript to run this app.</noscript>
             {menu}
             <div className="container">
+                {title}
                 {content}
             </div>
             {Object.values(jsFiles).map((url, index) => <script key={index} src={url} />)}

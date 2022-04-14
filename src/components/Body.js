@@ -1,5 +1,6 @@
 import {useEffect, useState} from "react";
 import Menu from "./Menu";
+import Footer from "./Footer";
 
 function Body({id, type, homepage}) {
     // [TO DO] Get from context
@@ -8,6 +9,7 @@ function Body({id, type, homepage}) {
     const pluginAPI = `${domain}/wp-json/rsfr-rendpoint/v1`;
 
     const [header, setHeader] = useState('');
+    const [title, setTitle] = useState('');
     const [content, setContent] = useState('');
     const [sidebar, setSidebar] = useState('');
     const [jsFiles, setJsFiles] = useState('');
@@ -40,6 +42,7 @@ function Body({id, type, homepage}) {
                     sidebarWrapper.appendChild(widgetElement);
                 });
 
+                setTitle(<h1 dangerouslySetInnerHTML={{ __html: data.title.rendered }}></h1>)
                 setContent(<div className="content col-12 col-lg-8" dangerouslySetInnerHTML={{ __html: contentWrapper.innerHTML }}></div>)
                 setSidebar(<aside className="sidebar col-12 col-lg-4" dangerouslySetInnerHTML={{ __html: sidebarWrapper.innerHTML }}></aside>)
             });
@@ -55,15 +58,21 @@ function Body({id, type, homepage}) {
     return (
         <body>
             <noscript>You need to enable JavaScript to run this app.</noscript>
+
             <header>
                 <Menu />
             </header>
+
             <main className="container">
                 <div className="row justify-content-center">
+                    {title}
                     {content}
                     {sidebar}
                 </div>
             </main>
+
+            <Footer />
+
             <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossOrigin="anonymous"></script>
             {
                 Object.entries(jsFiles)

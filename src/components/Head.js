@@ -1,12 +1,12 @@
-import { useEffect, useState } from "react";
+import {useEffect, useState} from "react";
 
-function Head() {
+const Head = () => {
     // [TO DO] Get from context
     const domain = 'http://bcwp.hltv.test';
     const restAPI = `${domain}/wp-json/wp/v2`;
     const pluginAPI = `${domain}/wp-json/rsfr-rendpoint/v1`;
 
-    const [cssFiles, setCssFiles] = useState({});
+    const [cssFiles, setCssFiles] = useState('');
 
     useEffect(() => {
         fetch(`${pluginAPI}/css`)
@@ -27,7 +27,15 @@ function Head() {
             />
             <title>React App</title>
             <link rel="stylesheet" href={window.location.origin+"/App.css"}/>
-            {Object.values(cssFiles).filter(url => url).map((url, index) => <link key={index} rel="stylesheet" href={url} />)}
+            {
+                Object.entries(cssFiles)
+                .filter(([handle, url]) => {
+                    return handle === 'bcb-style' || handle === 'bcsb-style' || handle === 'bcb-localization';
+                })
+                .map(([handle, url], index) => {
+                    return (<link key={index} rel="stylesheet" href={url} />);
+                })
+            }
         </head>
     );
 }

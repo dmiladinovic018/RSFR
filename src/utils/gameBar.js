@@ -1,4 +1,4 @@
-import {playMusic, playSound} from "./playSound";
+import {playMusic} from "./playSound";
 
 const gameBar = (isGameRuning) => {
     const gameBarId = "gameBar";

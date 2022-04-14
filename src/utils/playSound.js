@@ -17,6 +17,7 @@ export const playMusic = (src) => {
     const player = document.createElement('audio');
     const source = document.createElement('source');
     player.setAttribute('controls', '');
+    player.setAttribute('autoplay', '');
     source.setAttribute('src', publicDir + src);
     source.setAttribute('type', 'audio/mpeg');
     player.append(source);

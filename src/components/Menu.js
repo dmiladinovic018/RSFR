@@ -1,17 +1,15 @@
 import {useEffect, useState} from "react";
+import Constants from "./Constants";
 
 const Menu = () => {
-    // [TO DO] Get from context
-    const domain = 'http://bcwp.hltv.test';
-    const pluginAPI = `${domain}/wp-json/rsfr-rendpoint/v1`;
 
     const [menuFile, setMenuFile] = useState('');
 
     useEffect(() => {
-        fetch(`${pluginAPI}/menu`)
+        fetch(`${Constants().pluginAPI}/menu`)
             .then(response => response.json())
             .then(data => {
-                setMenuFile(JSON.parse(data.menu).replaceAll(domain, ''));
+                setMenuFile(JSON.parse(data.menu).replaceAll(Constants().domain, ''));
             });
     }, []);
 

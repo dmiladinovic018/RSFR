@@ -6,7 +6,7 @@ function Head() {
     const restAPI = `${domain}/wp-json/wp/v2`;
     const pluginAPI = `${domain}/wp-json/rsfr-rendpoint/v1`;
 
-    const [cssFiles, setCssFiles] = useState({});
+    const [cssFiles, setCssFiles] = useState('');
 
     useEffect(() => {
         fetch(`${pluginAPI}/css`)
@@ -26,6 +26,7 @@ function Head() {
                 content="Web site created using create-react-app"
             />
             <title>React App</title>
+            {/* <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossOrigin="anonymous" /> */}
             {Object.values(cssFiles).filter(url => url).map((url, index) => <link key={index} rel="stylesheet" href={url} />)}
         </head>
     );

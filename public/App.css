@@ -15001,7 +15001,7 @@ ul.dropdown-menu:not(.depth-0) {
   color: #000; }
 
 body.easterGameRuning {
-  background-image: url("../public/images/bossLife.jpg");
+  background-image: url("./images/bossLife.jpg");
   height: 100vh;
   width: 100%;
   background-size: cover;
@@ -15041,14 +15041,14 @@ body.easterGameRuning {
       display: inline-block;
       background-size: cover; }
   body.easterGameRuning .aleks {
-    background-image: url("../public/images/aleks.png"); }
+    background-image: url("./images/aleks.png"); }
   body.easterGameRuning .toni {
-    background-image: url("../public/images/toni.png"); }
+    background-image: url("./images/toni.png"); }
   body.easterGameRuning .misko {
-    background-image: url("../public/images/misko.png"); }
+    background-image: url("./images/misko.png"); }
   body.easterGameRuning .hanning {
-    background-image: url("../public/images/hanning.png"); }
+    background-image: url("./images/hanning.png"); }
   body.easterGameRuning .bayoMoj {
-    background-image: url("../public/images/baya.png"); }
+    background-image: url("./images/baya.png"); }
 
 /*# sourceMappingURL=App.css.map */

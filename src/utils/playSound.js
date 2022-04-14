@@ -15,7 +15,11 @@ export const hitSound = () => {
 
 export const playMusic = (src) => {
     const player = document.createElement('audio');
-    player.setAttribute('src', src);
+    const source = document.createElement('source');
+    player.setAttribute('controls', '');
+    source.setAttribute('src', publicDir + src);
+    source.setAttribute('type', 'audio/mpeg');
+    player.append(source);
 
     return player;
 }

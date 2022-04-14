@@ -1,6 +1,6 @@
 body {
   &.easterGameRuning {
-    background-image: url("../public/images/bossLife.jpg");
+    background-image: url("./images/bossLife.jpg");
     height: 100vh;
     width: 100%;
     background-size: cover;
@@ -52,23 +52,23 @@ body {
     }
 
     .aleks {
-      background-image: url("../public/images/aleks.png");
+      background-image: url("./images/aleks.png");
     }
 
     .toni {
-      background-image: url("../public/images/toni.png");
+      background-image: url("./images/toni.png");
     }
 
     .misko {
-      background-image: url("../public/images/misko.png");
+      background-image: url("./images/misko.png");
     }
 
     .hanning {
-      background-image: url("../public/images/hanning.png");
+      background-image: url("./images/hanning.png");
     }
 
     .bayoMoj {
-      background-image: url("../public/images/baya.png");
+      background-image: url("./images/baya.png");
     }
   }
 }

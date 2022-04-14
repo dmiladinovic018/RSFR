@@ -8,7 +8,6 @@ function Body({id, type, homepage}) {
     const restAPI = `${domain}/wp-json/wp/v2`;
     const pluginAPI = `${domain}/wp-json/rsfr-rendpoint/v1`;
 
-    const [header, setHeader] = useState('');
     const [title, setTitle] = useState('');
     const [content, setContent] = useState('');
     const [sidebar, setSidebar] = useState('');

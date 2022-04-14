@@ -1,4 +1,4 @@
-const publicDir = window.location.origin + '/';
+const publicDir = window.location.origin + '/sounds/';
 
 export const playSound = (src) => {
     const audio = new Audio(publicDir + src);
@@ -12,3 +12,9 @@ export const hitSound = () => {
     ];
     playSound(damageSounds[Math.floor(Math.random() * (1 + 1))]);
 }
+
+export const stopSound = () => {
+    // audio.stop();
+}
+
+export default playSound;

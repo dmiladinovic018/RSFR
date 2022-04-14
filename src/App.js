@@ -4,7 +4,8 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Content from './components/Content';
 
 function App({ routeMap }) {
-    EasterEggs();
+  EasterEggs();
+
   return (
     <Router>
       <Routes>

@@ -12,7 +12,7 @@ fetch(`${pluginAPI}/routes`)
 .then(response => response.json())
 .then(data => {
     const root = ReactDOM.createRoot(document.querySelector('html'));
-    root.render(<App routeMap={JSON.parse(data)} />);
+    root.render(<App routeMap={JSON.parse(data).routes} />);
 });
 
 // If you want to start measuring performance in your app, pass a function

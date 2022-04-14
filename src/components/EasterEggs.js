@@ -12,20 +12,13 @@ const EasterEggs = () => {
     const gameClassName = 'easterGameRuning';
 
     useEffect(() => {
-        if (isGameRuning) {
-            runEasterGame();
-        } else {
-            exitEasterGame();
-        }
+        isGameRuning ? runEasterGame() : exitEasterGame();
     }, [isGameRuning]);
 
-    document.addEventListener('keydown', () => {
-        keyBinding(isGameRuning, runGame);
-    });
+    keyBinding(isGameRuning, runGame);
 
     const runEasterGame = () => {
         body.classList.add(gameClassName);
-
         gameBar(isGameRuning);
 
         let invoker = setInterval(
@@ -43,9 +36,10 @@ const EasterEggs = () => {
     }
 
     const exitEasterGame = () => {
-        body.classList.remove(gameClassName)
         const gameBar = document.querySelector('#gameBar');
         const mobs = document.querySelectorAll('.mob');
+
+        body.classList.remove(gameClassName)
         clearInterval(invokeMobs);
 
         if (gameBar) {

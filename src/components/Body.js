@@ -1,7 +1,7 @@
-import { useEffect, useState } from "react";
-import Navigation from "./Navigation";
+import {useEffect, useState} from "react";
+import Menu from "./Menu";
 
-function Body({ id, type, homepage }) {
+function Body({id, type, homepage}) {
     // [TO DO] Get from context
     const domain = 'http://bcwp.hltv.test';
     const restAPI = `${domain}/wp-json/wp/v2`;
@@ -34,12 +34,14 @@ function Body({ id, type, homepage }) {
             .then(data => {
                 const contentWrapper = document.createElement('div');
                 contentWrapper.innerHTML = data.content.rendered;
-                const asideWrapper = document.createElement('div');
+
+                const sidebarWrapper = document.createElement('div');
                 contentWrapper.querySelectorAll('[class*="widget_"]').forEach((widgetElement) => {
-                    asideWrapper.appendChild(widgetElement);
+                    sidebarWrapper.appendChild(widgetElement);
                 });
-                setContent(<div className="content-wrapper col-12 col-lg-8" dangerouslySetInnerHTML={{ __html: contentWrapper.innerHTML }}></div>)
-                setSidebar(<aside className="sidebar col-12 col-lg-4" dangerouslySetInnerHTML={{ __html: asideWrapper.innerHTML }}></aside>)
+
+                setContent(<div className="content col-12 col-lg-8" dangerouslySetInnerHTML={{ __html: contentWrapper.innerHTML }}></div>)
+                setSidebar(<aside className="sidebar col-12 col-lg-4" dangerouslySetInnerHTML={{ __html: sidebarWrapper.innerHTML }}></aside>)
             });
         }
 
@@ -53,14 +55,15 @@ function Body({ id, type, homepage }) {
     return (
         <body>
             <noscript>You need to enable JavaScript to run this app.</noscript>
-            <Navigation />
+            <header>
+                <Menu />
+            </header>
             <main className="container">
                 <div className="row justify-content-center">
                     {content}
                     {sidebar}
                 </div>
             </main>
-            {/* <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossOrigin="anonymous"></script> */}
             {Object.values(jsFiles).map((url, index) => <script key={index} src={url} />)}
         </body>
     );

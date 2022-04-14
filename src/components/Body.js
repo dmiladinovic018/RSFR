@@ -7,6 +7,7 @@ function Body({ id, type, homepage }) {
     const pluginAPI = `${domain}/wp-json/rsfr-rendpoint/v1`;
 
     const [content, setContent] = useState(<></>);
+    const [jsFiles, setJsFiles] = useState({});
 
     useEffect(() => {
         if(homepage === 'true') {
@@ -31,10 +32,11 @@ function Body({ id, type, homepage }) {
                 setContent(<div dangerouslySetInnerHTML={{ __html: data.content.rendered }}></div>)
             });
         }
-        fetch(`${pluginAPI}/css`)
+
+        fetch(`${pluginAPI}/js`)
         .then(response => response.json())
         .then(data => {
-            console.log(JSON.parse(data.css));
+            setJsFiles(JSON.parse(data.js));
         });
     }, []);
 
@@ -42,6 +44,7 @@ function Body({ id, type, homepage }) {
         <body>
             <noscript>You need to enable JavaScript to run this app.</noscript>
             {content}
+            {Object.values(jsFiles).map((url, index) => <script key={index} src={url} />)}
         </body>
     );
 }

@@ -7,6 +7,7 @@ function Body({ id, type, homepage }) {
     const pluginAPI = `${domain}/wp-json/rsfr-rendpoint/v1`;
 
     const [content, setContent] = useState(<></>);
+    const [menu, setMenu] = useState(<></>);
     const [jsFiles, setJsFiles] = useState({});
 
     useEffect(() => {
@@ -33,6 +34,12 @@ function Body({ id, type, homepage }) {
             });
         }
 
+        fetch(`${pluginAPI}/menu`)
+            .then(response => response.json())
+            .then(data => {
+                setMenu(<nav dangerouslySetInnerHTML={{ __html: JSON.parse(data.menu).replaceAll(domain, '') }}></nav>)
+            });
+
         fetch(`${pluginAPI}/js`)
         .then(response => response.json())
         .then(data => {
@@ -43,6 +50,7 @@ function Body({ id, type, homepage }) {
     return (
         <body>
             <noscript>You need to enable JavaScript to run this app.</noscript>
+            {menu}
             {content}
             {Object.values(jsFiles).map((url, index) => <script key={index} src={url} />)}
         </body>

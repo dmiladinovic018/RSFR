@@ -11,13 +11,14 @@ body {
 
     .damaged:not(body) {
       opacity: .5 !important;
-      filter: grayscale(0.5) brightness(3);
+      transform: scale(0.7);
     }
 
     .destroyed:not(body) {
       opacity: 0 !important;
       z-index: -1;
       transform: rotate(360deg) scale(0.3);
+      filter: grayscale(1) brightness(3);
     }
 
     .mob {

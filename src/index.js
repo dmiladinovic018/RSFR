@@ -5,36 +5,14 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 
 const domain = 'http://bcwp.hltv.test';
-const API = `${domain}/wp-json/wp/v2`;
-let routeMap = [];
+const restAPI = `${domain}/wp-json/wp/v2`;
+const pluginAPI = `${domain}/wp-json/rsfr-rendpoint/v1`;
 
-// [TO DO] cache routes
-fetch(`${API}/posts?per_page=100`) // max 100 per request
+fetch(`${pluginAPI}/routes`)
 .then(response => response.json())
 .then(data => {
-    data.forEach((post) => {
-        routeMap.push({
-            route: post.link.replace(domain, ''),
-            id: post.id,
-            type: 'post'
-        });
-    });
-
-    fetch(`${API}/pages?per_page=100`) // max 100 per request
-    .then(response => response.json())
-    .then(data => {
-        data.forEach((page) => {
-            routeMap.push({
-                route: page.link.replace(domain, ''),
-                id: page.id,
-                type: 'page'
-            });
-        });
-        console.log(routeMap);
-
-        const root = ReactDOM.createRoot(document.getElementById('root'));
-        root.render(<App routeMap={routeMap} />);
-    });
+    const root = ReactDOM.createRoot(document.querySelector('html'));
+    root.render(<App routeMap={JSON.parse(data)} />);
 });
 
 // If you want to start measuring performance in your app, pass a function

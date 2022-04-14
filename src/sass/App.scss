@@ -1,74 +1,19 @@
-body {
-  &.easterGameRuning {
-    background-image: url("../../public/images/bossLife.jpg");
-    height: 100vh;
-    width: 100%;
-    background-size: cover;
-    background-position: center center;
-    cursor: crosshair;
-    overflow: hidden;
-    z-index: 1;
+// custom variable
+@import "bs-variable-overrides";
 
-    .damaged:not(body) {
-      opacity: .5 !important;
-      filter: grayscale(1) brightness(3);
-    }
+// Bootstrap 5
+@import "bootstrap";
 
-    .destroyed:not(body) {
-      opacity: 0 !important;
-      z-index: -1;
-      transform: rotate(360deg) scale(0.3);
-    }
+// Core Theme scss file
+@import "core/stackable";
+@import "core/preloader";
+@import "core/search-modal";
 
-    .mob {
-      position: absolute;
-      z-index: 2;
-      width: 100px;
-      height: 130px;
-      background-position: center center;
-      background-repeat: no-repeat;
-
-      -webkit-transition: all 0.3s 0s ease-out;
-      -moz-transition: all 0.3s 0s ease-out;
-      -o-transition: all 0.3s 0s ease-out;
-      transition: all 0.3s 0s ease-out;
-    }
-
-    #gameBar {
-      cursor: pointer;
-      position: fixed;
-      top: 0;
-
-      .aleks,
-      .toni,
-      .misko,
-      .hanning,
-      .bayoMoj {
-        height: 50px;
-        width: 50px;
-        display: inline-block;
-        background-size: cover;
-      }
-    }
-
-    .aleks {
-      background-image: url("../../public/images/aleks.png");
-    }
-
-    .toni {
-      background-image: url("../../public/images/toni.png");
-    }
-
-    .misko {
-      background-image: url("../../public/images/misko.png");
-    }
-
-    .hanning {
-      background-image: url("../../public/images/hanning.png");
-    }
-
-    .bayoMoj {
-      background-image: url("../../public/images/baya.png");
-    }
-  }
-}
+// Components
+@import "components/alignfull-blocks";
+@import "components/bc-block-common-classes";
+@import "components/navigation-menu";
+@import "components/hero";
+@import "components/understrap-dependencies";
+@import "components/scroll-hint";
+@import "components/easter-eggs";

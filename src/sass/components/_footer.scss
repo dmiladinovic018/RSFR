@@ -1,0 +1,14 @@
+.footer {
+  margin-top: 3rem;
+  background: white;
+
+  .row {
+    justify-content: center;
+    align-items: center;
+
+    div {
+      width: auto;
+      margin: 20px !important;
+    }
+  }
+}

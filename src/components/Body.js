@@ -51,7 +51,9 @@ function Body({ id, type, homepage }) {
         <body>
             <noscript>You need to enable JavaScript to run this app.</noscript>
             {menu}
-            {content}
+            <div className="container">
+                {content}
+            </div>
             {Object.values(jsFiles).map((url, index) => <script key={index} src={url} />)}
         </body>
     );

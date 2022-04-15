@@ -1,15 +1,12 @@
 import {useEffect, useState} from "react";
+import Constants from "./Constants";
 
 const Head = () => {
-    // [TO DO] Get from context
-    const domain = 'http://bcwp.hltv.test';
-    const restAPI = `${domain}/wp-json/wp/v2`;
-    const pluginAPI = `${domain}/wp-json/rsfr-rendpoint/v1`;
 
     const [cssFiles, setCssFiles] = useState('');
 
     useEffect(() => {
-        fetch(`${pluginAPI}/css`)
+        fetch(`${Constants().pluginAPI}/css`)
         .then(response => response.json())
         .then(data => {
             setCssFiles(JSON.parse(data.css));
@@ -25,7 +22,7 @@ const Head = () => {
                 name="description"
                 content="Web site created using create-react-app"
             />
-            <title>React App</title>
+            <title>RSFR</title>
             <link rel="stylesheet" href={window.location.origin+"/App.css"}/>
             {
                 Object.entries(cssFiles)

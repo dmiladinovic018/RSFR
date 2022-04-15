@@ -85,7 +85,7 @@ a.skip-link {
 
 ul.dropdown-menu:not(.depth-0) {
 	left: 50px;
-	top: 50px;
+	top: 0;
 }
 
 .dropdown-menu {
@@ -99,6 +99,19 @@ ul.dropdown-menu:not(.depth-0) {
 .btn.dropdown-toggle {
 	padding: 0;
 	color: rgba($white, 0.55);
+}
+
+a.dropdown-toggle {
+	white-space: normal;
+
+	&::after {
+		display: none;
+	}
+}
+
+.dropdown-button {
+	width: 24px;
+	height: 24px;
 }
 
 .depth-0 {

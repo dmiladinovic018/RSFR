@@ -10,7 +10,7 @@ const gameBar = (isGameRuning) => {
         // const misko = document.createElement("div");
         // const hanning = document.createElement("div");
         // const bayoMoj = document.createElement("div");
-        const player = playMusic('Invader - Dance with the dead.mp4');
+        const player = playMusic('Hladno Pivo - Sef gradilista.3gp');
 
         gameBar.setAttribute("id", gameBarId);
         // aleks.setAttribute("class", "player aleks invincible");

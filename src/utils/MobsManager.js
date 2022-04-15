@@ -14,7 +14,7 @@ class MobsManager {
 
             mob.setAttribute("class", 'mob ' + mobsClasses[this.getRandomPosition(0, 5)]);
             mob.style.left = this.getRandomPosition(1, 90) + '%';
-            mob.style.top = '-50px';
+            mob.style.top = window.scrollY+'px';
 
             document.querySelector('body').prepend(mob);
         }

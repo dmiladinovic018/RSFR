@@ -3,12 +3,10 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import Constants from './components/Constants';
 
-const domain = 'http://bcwp.hltv.test';
-const restAPI = `${domain}/wp-json/wp/v2`;
-const pluginAPI = `${domain}/wp-json/rsfr-rendpoint/v1`;
 
-fetch(`${pluginAPI}/routes`)
+fetch(`${Constants().pluginAPI}/routes`)
 .then(response => response.json())
 .then(data => {
     const root = ReactDOM.createRoot(document.querySelector('html'));

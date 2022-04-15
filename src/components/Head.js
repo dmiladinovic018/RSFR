@@ -25,7 +25,7 @@ const Head = () => {
                 name="description"
                 content="Web site created using create-react-app"
             />
-            <title>React App</title>
+            <title>RSFR</title>
             <link rel="stylesheet" href={window.location.origin+"/App.css"}/>
             {
                 Object.entries(cssFiles)

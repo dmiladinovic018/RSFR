@@ -1,12 +1,9 @@
 import {useEffect, useState} from "react";
 import Menu from "./Menu";
 import Footer from "./Footer";
+import Constants from "./Constants";
 
 function Body({id, type, homepage}) {
-    // [TO DO] Get from context
-    const domain = 'http://bcwp.hltv.test';
-    const restAPI = `${domain}/wp-json/wp/v2`;
-    const pluginAPI = `${domain}/wp-json/rsfr-rendpoint/v1`;
 
     const [title, setTitle] = useState('');
     const [content, setContent] = useState('');
@@ -15,14 +12,14 @@ function Body({id, type, homepage}) {
 
     useEffect(() => {
         if(homepage === 'true') {
-            fetch(`${restAPI}/posts`) // 10 by default
+            fetch(`${Constants().restAPI}/posts`) // 10 by default
             .then(response => response.json())
             .then(data => {
                 setContent(
                     <ul>
                         {data.map((post, index) => {
                             return (
-                                <li key={index}><a href={post.link.replace(domain, '')}>{post.title.rendered}</a></li>
+                                <li key={index}><a href={post.link.replace(Constants().domain, '')}>{post.title.rendered}</a></li>
                             );
                         })}
                     </ul>
@@ -30,7 +27,7 @@ function Body({id, type, homepage}) {
             });
         }
         else {
-            fetch(`${restAPI}/${type}s/${id}`)
+            fetch(`${Constants().restAPI}/${type}s/${id}`)
             .then(response => response.json())
             .then(data => {
                 const contentWrapper = document.createElement('div');
@@ -47,7 +44,7 @@ function Body({id, type, homepage}) {
             });
         }
 
-        fetch(`${pluginAPI}/js`)
+        fetch(`${Constants().pluginAPI}/js`)
         .then(response => response.json())
         .then(data => {
             setJsFiles(JSON.parse(data.js));

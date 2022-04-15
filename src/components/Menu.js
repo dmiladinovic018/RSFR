@@ -1,19 +1,17 @@
 import {useEffect, useState} from "react";
 import setupMenu from '../utils/menu';
+import Constants from "./Constants";
 
 const Menu = () => {
-    // [TO DO] Get from context
-    const domain = 'http://bcwp.hltv.test';
-    const pluginAPI = `${domain}/wp-json/rsfr-rendpoint/v1`;
 
     const [menuFile, setMenuFile] = useState('');
 
     useEffect(() => {
-        fetch(`${pluginAPI}/menu`)
+        fetch(`${Constants().pluginAPI}/menu`)
             .then(response => response.json())
             .then(data => {
                 const menuWrapper = document.createElement('div');
-                menuWrapper.innerHTML = JSON.parse(data.menu).replaceAll(domain, '');
+                menuWrapper.innerHTML = JSON.parse(data.menu).replaceAll(Constants().domain, '');
                 setupMenu(menuWrapper);
                 setMenuFile(<div className="container-fluid" dangerouslySetInnerHTML={{ __html: menuWrapper.innerHTML }}></div>)
             });

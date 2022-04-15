@@ -14837,7 +14837,7 @@ a.skip-link {
 
 ul.dropdown-menu:not(.depth-0) {
   left: 50px;
-  top: 50px; }
+  top: 0; }
 
 .dropdown-menu .nav-item > a {
   white-space: normal; }
@@ -14845,6 +14845,15 @@ ul.dropdown-menu:not(.depth-0) {
 .btn.dropdown-toggle {
   padding: 0;
   color: rgba(255, 255, 255, 0.55); }
+
+a.dropdown-toggle {
+  white-space: normal; }
+  a.dropdown-toggle::after {
+    display: none; }
+
+.dropdown-button {
+  width: 24px;
+  height: 24px; }
 
 .depth-0 .btn.dropdown-toggle {
   color: #212529; }
@@ -15061,5 +15070,9 @@ body.easterGameRuning {
     .footer .row div {
       width: auto;
       margin: 20px !important; }
+
+.content img {
+  max-width: 100%;
+  height: auto; }
 
 /*# sourceMappingURL=App.css.map */

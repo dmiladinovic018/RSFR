@@ -1,0 +1,68 @@
+// COSMOS Design Tokens Variables
+
+// Settings
+$enable-important-utilities: false;
+
+// Typography
+$font-family-base: 'Roboto', sans-serif;
+$headings-font-family: 'Fjalla One', sans-serif;
+$h1-font-size: 2.25rem; //REM
+$h2-font-size: 1.875rem; //REM
+$h3-font-size: 1.5rem; //REM
+$h4-font-size: 1rem; //REM
+$h5-font-size: 0.875rem; //REM
+$h6-font-size: 0.75rem; //REM
+$font-weight-medium: 500;
+
+// Colors
+$primary: #312651;
+$secondary: #FF7755;
+$danger: #FF4343;
+$success: #278557;
+$color-1: #003A46;
+$color-2: #2D4D5F;
+$color-3: #526372;
+$color-4: #A4BBCE;
+$color-5: #F3F4F8;
+$dark: #0F0F0F;
+$dark-1: #404040;
+$dark-2: #969696;
+$light-1: #E6E4E6;
+$light: #F6F6F7;
+$black: #000;
+$white: #fff;
+
+// Spacing
+$spacer: 1rem;
+$spacing-0: 0;
+$spacing-05: $spacer / 8;
+$spacing-1: $spacer / 4;
+$spacing-2: $spacer / 2;
+$spacing-4: $spacer;
+$spacing-8: $spacer * 2;
+$spacing-16: $spacer * 4;
+$spacing-32: $spacer * 8;
+$spacing-64: $spacer * 16;
+$full: 100%;
+
+// Gutters
+$grid-gutter-width: $spacing-8;
+
+// Breakpoints
+$screen-sm: 576px;
+$screen-md: 768px;
+$screen-lg: 992px;
+$screen-xl: 1200px;
+$screen-xxl: 1400px;
+
+// Box Shadows
+$box-shadow-xs: 0 .063rem .125rem rgba($black, .1);
+$box-shadow-sm: 0 .125rem .25rem rgba($black, .15);
+$box-shadow: 0 .5rem 1rem rgba($black, .075);
+$box-shadow-lg: 0 .5rem 2rem rgba($black, .1);
+$box-shadow-xl: 0 1rem 4rem rgba($black, .175);
+
+//Border radius
+$border-radius: .25rem;
+$border-radius-sm:  .125rem;
+$border-radius-lg:  .3125rem;

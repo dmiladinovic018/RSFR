@@ -1,0 +1,41 @@
+// COSMOS Design Tokens Mapping
+
+// Custom Colors
+$custom-colors: (
+    "primary":      $primary, 
+    "secondary":    $secondary,
+    "danger":       $danger,
+    "success":      $success,
+    "color-1":      $color-1,
+    "color-2":      $color-2,
+    "color-3":      $color-3,
+    "color-4":      $color-4,
+    "color-5":      $color-5,
+    "dark":         $dark,
+    "dark-1":       $dark-1,
+    "dark-2":       $dark-2,
+    "light-1":      $light-1,
+    "light":        $light,
+    "black":        $black,
+    "white":        $white,
+);
+
+$theme-colors: map-merge($theme-colors, $custom-colors);
+$theme-colors-rgb: map-loop($theme-colors, to-rgb, "$value");
+$utilities-colors: map-merge($utilities-colors, $theme-colors-rgb);
+$utilities-text-colors: map-loop($utilities-colors, rgba-css-var, "$key", "text");
+$utilities-bg-colors: map-loop($utilities-colors, rgba-css-var, "$key", "bg");
+
+// Custom Spacing
+$custom-spacing: (
+    0: $spacing-0,
+    0\.5: $spacing-05,
+    1: $spacing-1,
+    2: $spacing-2,
+    4: $spacing-4,
+    8: $spacing-8,
+    16: $spacing-16,
+    32: $spacing-32,
+    64: $spacing-64,
+);
+$spacers: map-merge($spacers, $custom-spacing);
